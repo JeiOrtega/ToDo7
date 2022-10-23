@@ -6,7 +6,9 @@ app.use(express.json())
 
 const router = Router()
 
-router.get("/").send("rota de test")
+router.get("/", (requet,resposta)=>{
+    resposta.status(200).json({text:"rota de test"})
+})
 
 router.get("/suma")
 
@@ -16,5 +18,9 @@ router.get("/multiplicaion")
 
 router.get("/division")
 
+app.use(router)
+
 app.listen(3300,()=>console.log("servidor rodando"))
+
+module.exports = app
 
